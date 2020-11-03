@@ -11,10 +11,7 @@ public class FroggerApplication extends Application{
 	public void start(Stage primaryStage) throws Exception {
 	   GameView gameView = new GameView();
 	   GameModel gameModel = new GameModel(gameView.background,gameView.animal);
-	   GameController gameController = new GameController(gameView,gameModel);
-		primaryStage.setScene(gameView.scene);
-		primaryStage.show();
-		gameController.start(); 
-	}
-	
+	   GameController gameController = new GameController(gameView,gameModel,primaryStage);
+	   gameController.start(); 
+	}	
 }
