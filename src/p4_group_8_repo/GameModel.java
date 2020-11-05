@@ -5,13 +5,53 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class GameModel {
-	MyStage background;
-	AnimationTimer timer;
-	Animal animal;
-	GameModel(MyStage background, Animal animal){
+	private MyStage background;
+	private AnimationTimer timer;
+	private Animal animal;
+	
+	public void setGameModel(MyStage background, Animal animal) {
 		this.background = background;
 		this.animal = animal;
 	}
+	
+	
+	
+	public MyStage getBackground() {
+		return background;
+	}
+
+
+
+	public void setBackground(MyStage background) {
+		this.background = background;
+	}
+
+
+
+	public AnimationTimer getTimer() {
+		return timer;
+	}
+
+
+
+	public void setTimer(AnimationTimer timer) {
+		this.timer = timer;
+	}
+
+
+
+	public Animal getAnimal() {
+		return animal;
+	}
+
+
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
+
+
+
 	public void start() {
 		background.playMusic();
     	createTimer();
