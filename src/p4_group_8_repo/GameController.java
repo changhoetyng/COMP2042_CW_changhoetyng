@@ -38,11 +38,8 @@ public class GameController {
 	
 	public void start(){
 		gameView.createGameScene();
-//		gameView.createMainMenu();
 		gameModel.setGameModel(gameView.getBackground(),gameView.getAnimal());
 		primaryStage.setScene(gameView.getScene());
-		primaryStage.show();
-//		gameView.button1.setOnAction(e -> primaryStage.setScene(gameView.scene));
 		gameModel.start();
 	}
 }

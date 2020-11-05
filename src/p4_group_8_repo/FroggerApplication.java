@@ -9,9 +9,12 @@ public class FroggerApplication extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-	   GameView gameView = new GameView();
-	   GameModel gameModel = new GameModel();
-	   GameController gameController = new GameController(gameView,gameModel,primaryStage);
-	   gameController.start(); 
+	   primaryStage.setResizable(false);
+	   
+	   MainMenuView mainMenuView = new MainMenuView();
+	   MainMenuModel mainMenuModel = new MainMenuModel();
+	   MainMenuController mainMenuController = new MainMenuController(mainMenuView,mainMenuModel,primaryStage); 
+
+	   mainMenuController.start(); 
 	}	
 }
