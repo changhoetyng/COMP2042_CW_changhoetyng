@@ -17,12 +17,22 @@ public class MainMenuController {
 	public void start() {
 		mainMenuView.createMainMenu();
 		startButtonListener();
+		infoButtonListener();
 		primaryStage.setScene(mainMenuView.getMainMenuScene());
 		primaryStage.show();
 	}
 	
 	public void startButtonListener() {
 		mainMenuView.getStartButton().setOnAction(e -> {
+			GameView gameView = new GameView();
+			GameModel gameModel = new GameModel();
+			GameController gameController = new GameController(gameView,gameModel,primaryStage);
+			gameController.start();
+		});
+	}
+	
+	public void infoButtonListener() {
+		mainMenuView.getInfoButton().setOnAction(e -> {
 			GameView gameView = new GameView();
 			GameModel gameModel = new GameModel();
 			GameController gameController = new GameController(gameView,gameModel,primaryStage);

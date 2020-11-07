@@ -9,6 +9,7 @@ import javafx.scene.layout.Pane;
 public class MainMenuView {
 	
 	private Button startButton;
+	private Button infoButton;
 	private Scene mainMenuScene;
 	public void createMainMenu() {
 		Pane mainMenu = new Pane();
@@ -30,9 +31,26 @@ public class MainMenuView {
 		startImg.setPreserveRatio(true);
 		startButton.setGraphic(startImg);
 		
+		infoButton = new Button();
+		infoButton.setLayoutX(230);
+		infoButton.setLayoutY(525);
+		BackgroundImage infoImg = new BackgroundImage("file:src/Pictures/info.png");
+		infoImg.setFitWidth(115);
+		infoImg.setPreserveRatio(true);
+		infoButton.setGraphic(infoImg);
+		
 		addChildren.add(new BackgroundImage("file:src/Pictures/backImageEdit.jpg"));
 		addChildren.add(logo);
 		addChildren.add(startButton);
+		addChildren.add(infoButton);
+	}
+	
+	public Button getInfoButton() {
+		return infoButton;
+	}
+
+	public void setInfoButton(Button infoButton) {
+		this.infoButton = infoButton;
 	}
 
 	public Button getStartButton() {

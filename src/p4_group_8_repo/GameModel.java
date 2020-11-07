@@ -3,6 +3,8 @@ package p4_group_8_repo;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import java.util.*; 
+import java.io.*;
 
 public class GameModel {
 	private MyStage background;
@@ -69,6 +71,11 @@ public class GameModel {
             		background.stopMusic();
             		stop();
             		background.stop();
+            		try {
+						createFileScore();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
             		Alert alert = new Alert(AlertType.INFORMATION);
             		alert.setTitle("You Have Won The Game!");
             		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
@@ -78,6 +85,42 @@ public class GameModel {
             }
         };
     }
+	
+	public void createFileScore() throws IOException{
+		 ArrayList<Integer> list=new ArrayList<Integer>();
+		 if(new File("src/Text/score.txt").isFile()) { 
+			FileReader reader = new FileReader("src/Text/score.txt");
+			BufferedReader br=new BufferedReader(reader);
+			String line;
+		    for(int i=0;i<5;i++) {
+		    	
+		    	line = br.readLine();
+		    	
+		    	if (line == null) {
+		    		break;
+		    	}
+		    	
+		        list.add(Integer.parseInt(line));
+		    }
+		         br.close();
+		}
+		 int number = animal.getPoints();
+		 list.add(number);
+         Collections.sort(list);
+         Collections.reverse(list);
+         FileWriter writer = new FileWriter("src/Text/score.txt");
+         int counter = 0;
+         for(int i=0;i<list.size();i++) {  
+         if(counter == 5) {
+           break;
+         }
+         writer.write(Integer.toString(list.get(i)));
+         writer.write('\n');    
+         counter++;
+        }  
+
+         writer.close();
+	}
 	
 	public void stop() {
         timer.stop();

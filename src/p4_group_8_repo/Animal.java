@@ -247,7 +247,7 @@ public class Animal extends Actor {
 		}
 	}
 	public boolean getStop() {
-		return end==5;
+		return end==2;
 	}
 	
 	public int getPoints() {
