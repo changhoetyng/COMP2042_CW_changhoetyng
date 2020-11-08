@@ -66,7 +66,7 @@ public class GameModel {
             	if (animal.changeScore()) {
             		setNumber(animal.getPoints());
             	}
-            	if (animal.getStop()) {
+            	if (animal.isStop()) {
             		System.out.print("STOPP:");
             		background.stopMusic();
             		stop();

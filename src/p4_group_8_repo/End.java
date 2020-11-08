@@ -3,10 +3,11 @@ package p4_group_8_repo;
 import javafx.scene.image.Image;
 
 public class End extends Actor{
-	boolean activated = false;
+	private boolean activated = false;
+	
 	@Override
 	public void act(long now) {
-		// TODO Auto-generated method st
+		// TODO Auto-generated method 
 	}
 	
 	public End(int x, int y) {
@@ -20,9 +21,14 @@ public class End extends Actor{
 		activated = true;
 	}
 	
-	public boolean isActivated() {
+	public boolean getActivated() {
 		return activated;
 	}
+
+	public void setActivated(boolean activated) {
+		this.activated = activated;
+	}
+	
 	
 
 }

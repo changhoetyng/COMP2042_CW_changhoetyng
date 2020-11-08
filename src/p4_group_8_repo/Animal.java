@@ -10,27 +10,27 @@ import javafx.scene.input.KeyEvent;
 
 
 public class Animal extends Actor {
-	Image imgW1;
-	Image imgA1;
-	Image imgS1;
-	Image imgD1;
-	Image imgW2;
-	Image imgA2;
-	Image imgS2;
-	Image imgD2;
-	int points = 0;
-	int end = 0;
+	private Image imgW1;
+	private Image imgA1;
+	private Image imgS1;
+	private Image imgD1;
+	private Image imgW2;
+	private Image imgA2;
+	private Image imgS2;
+	private Image imgD2;
+	private int points = 0;
+	private int end = 0;
 	private boolean second = false;
-	boolean noMove = false;
-	double movement = 13.3333333*2;
-	double movementX = 10.666666*2;
-	int imgSize = 40;
-	boolean carDeath = false;
-	boolean waterDeath = false;
-	boolean stop = false;
-	boolean changeScore = false;
-	int carD = 0;
-	double w = 800;
+	private boolean noMove = false;
+	private double movement = 13.3333333*2;
+	private double movementX = 10.666666*2;
+	private int imgSize = 40;
+	private boolean carDeath = false;
+	private boolean waterDeath = false;
+	private boolean changeScore = false;
+	private int carD = 0;
+	private double w = 800;
+	
 	ArrayList<End> inter = new ArrayList<End>();
 	public Animal(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
@@ -133,7 +133,6 @@ public class Animal extends Actor {
 	
 	@Override
 	public void act(long now) {
-		int bounds = 0;
 		if (getY()<0 || getY()>734) {
 			setX(300);
 			setY(679.8+movement);
@@ -207,9 +206,6 @@ public class Animal extends Actor {
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			carDeath = true;
 		}
-		if (getX() == 240 && getY() == 82) {
-			stop = true;
-		}
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft())
 				move(-2,0);
@@ -220,7 +216,7 @@ public class Animal extends Actor {
 			move(-1,0);
 		}
 		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
-			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
+			if (getIntersectingObjects(WetTurtle.class).get(0).getSunk()) {
 				waterDeath = true;
 			} else {
 				move(-1,0);
@@ -228,7 +224,7 @@ public class Animal extends Actor {
 		}
 		else if (getIntersectingObjects(End.class).size() >= 1) {
 			inter = (ArrayList<End>) getIntersectingObjects(End.class);
-			if (getIntersectingObjects(End.class).get(0).isActivated()) {
+			if (getIntersectingObjects(End.class).get(0).getActivated()) {
 				end--;
 				points-=50;
 			}
@@ -246,13 +242,6 @@ public class Animal extends Actor {
 			//setY(679.8+movement);
 		}
 	}
-	public boolean getStop() {
-		return end==2;
-	}
-	
-	public int getPoints() {
-		return points;
-	}
 	
 	public boolean changeScore() {
 		if (changeScore) {
@@ -263,5 +252,175 @@ public class Animal extends Actor {
 		
 	}
 	
+	public boolean isStop() {
+		return end==2;
+	}
+	
+	public int getPoints() {
+		return points;
+	}
+	
+	public Image getImgW1() {
+		return imgW1;
+	}
 
+	public void setImgW1(Image imgW1) {
+		this.imgW1 = imgW1;
+	}
+
+	public Image getImgA1() {
+		return imgA1;
+	}
+
+	public void setImgA1(Image imgA1) {
+		this.imgA1 = imgA1;
+	}
+
+	public Image getImgS1() {
+		return imgS1;
+	}
+
+	public void setImgS1(Image imgS1) {
+		this.imgS1 = imgS1;
+	}
+
+	public Image getImgD1() {
+		return imgD1;
+	}
+
+	public void setImgD1(Image imgD1) {
+		this.imgD1 = imgD1;
+	}
+
+	public Image getImgW2() {
+		return imgW2;
+	}
+
+	public void setImgW2(Image imgW2) {
+		this.imgW2 = imgW2;
+	}
+
+	public Image getImgA2() {
+		return imgA2;
+	}
+
+	public void setImgA2(Image imgA2) {
+		this.imgA2 = imgA2;
+	}
+
+	public Image getImgS2() {
+		return imgS2;
+	}
+
+	public void setImgS2(Image imgS2) {
+		this.imgS2 = imgS2;
+	}
+
+	public Image getImgD2() {
+		return imgD2;
+	}
+
+	public void setImgD2(Image imgD2) {
+		this.imgD2 = imgD2;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
+	public boolean isSecond() {
+		return second;
+	}
+
+	public void setSecond(boolean second) {
+		this.second = second;
+	}
+
+	public boolean isNoMove() {
+		return noMove;
+	}
+
+	public void setNoMove(boolean noMove) {
+		this.noMove = noMove;
+	}
+
+	public double getMovement() {
+		return movement;
+	}
+
+	public void setMovement(double movement) {
+		this.movement = movement;
+	}
+
+	public double getMovementX() {
+		return movementX;
+	}
+
+	public void setMovementX(double movementX) {
+		this.movementX = movementX;
+	}
+
+	public int getImgSize() {
+		return imgSize;
+	}
+
+	public void setImgSize(int imgSize) {
+		this.imgSize = imgSize;
+	}
+
+	public boolean isCarDeath() {
+		return carDeath;
+	}
+
+	public void setCarDeath(boolean carDeath) {
+		this.carDeath = carDeath;
+	}
+
+	public boolean isWaterDeath() {
+		return waterDeath;
+	}
+
+	public void setWaterDeath(boolean waterDeath) {
+		this.waterDeath = waterDeath;
+	}
+
+	public boolean isChangeScore() {
+		return changeScore;
+	}
+
+	public void setChangeScore(boolean changeScore) {
+		this.changeScore = changeScore;
+	}
+
+	public int getCarD() {
+		return carD;
+	}
+
+	public void setCarD(int carD) {
+		this.carD = carD;
+	}
+
+	public double getW() {
+		return w;
+	}
+
+	public void setW(double w) {
+		this.w = w;
+	}
+
+	public ArrayList<End> getInter() {
+		return inter;
+	}
+
+	public void setInter(ArrayList<End> inter) {
+		this.inter = inter;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
 }

@@ -7,7 +7,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class MyStage extends World{
-	MediaPlayer mediaPlayer;
+	private MediaPlayer mediaPlayer;
 	@Override
 	public void act(long now) {
 		
@@ -38,6 +38,14 @@ public class MyStage extends World{
 	
 	public void stopMusic() {
 		mediaPlayer.stop();
+	}
+
+	public MediaPlayer getMediaPlayer() {
+		return mediaPlayer;
+	}
+
+	public void setMediaPlayer(MediaPlayer mediaPlayer) {
+		this.mediaPlayer = mediaPlayer;
 	}
 
 }

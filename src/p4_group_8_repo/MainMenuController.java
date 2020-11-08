@@ -1,6 +1,5 @@
 package p4_group_8_repo;
 
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class MainMenuController {
