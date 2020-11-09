@@ -3,36 +3,12 @@ package p4_group_8_repo;
 import javafx.scene.Scene;
 
 
-public class GameView {
+public class GameView implements ViewInterface{
 	private MyStage background;
 	private Animal animal;
 	private Scene scene;
 	
-	public Scene getScene() {
-		return this.scene;
-	}
-	
-	public MyStage getBackground() {
-		return this.background;
-	}
-	
-	public Animal getAnimal() {
-		return this.animal;
-	}
-	
-	public void setScene(Scene scene) {
-		this.scene = scene;
-	}
-	
-	public void setBackground(MyStage background) {
-		this.background = background;
-	}
-	
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
-	}
-	
-	public void createGameScene() {
+	public void mainScreen() {
 	 	background = new MyStage();
 	    scene  = new Scene(background,600,800);
 	    
@@ -104,5 +80,28 @@ public class GameView {
 		//background.add(obstacle1);
 		//background.add(obstacle2);
 		background.start();
+	}
+	public Scene getScene() {
+		return this.scene;
+	}
+	
+	public MyStage getBackground() {
+		return this.background;
+	}
+	
+	public Animal getAnimal() {
+		return this.animal;
+	}
+	
+	public void setScene(Scene scene) {
+		this.scene = scene;
+	}
+	
+	public void setBackground(MyStage background) {
+		this.background = background;
+	}
+	
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
 	}
 }

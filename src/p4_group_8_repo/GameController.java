@@ -2,7 +2,7 @@ package p4_group_8_repo;
 
 import javafx.stage.Stage;
 
-public class GameController {
+public class GameController implements ControllerInterface{
 	private GameView gameView;
 	private GameModel gameModel;
 	private Stage primaryStage;
@@ -37,7 +37,7 @@ public class GameController {
 	}
 	
 	public void start(){
-		gameView.createGameScene();
+		gameView.mainScreen();
 		gameModel.setGameModel(gameView.getBackground(),gameView.getAnimal());
 		primaryStage.setScene(gameView.getScene());
 		gameModel.start();

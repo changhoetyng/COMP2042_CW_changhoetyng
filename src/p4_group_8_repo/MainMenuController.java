@@ -2,7 +2,7 @@ package p4_group_8_repo;
 
 import javafx.stage.Stage;
 
-public class MainMenuController {
+public class MainMenuController implements ControllerInterface{
 	private MainMenuView mainMenuView;
 	private MainMenuModel mainMenuModel;
 	private Stage primaryStage;
@@ -14,7 +14,7 @@ public class MainMenuController {
 	}
 	
 	public void start() {
-		mainMenuView.createMainMenu();
+		mainMenuView.mainScreen();
 		startButtonListener();
 		infoButtonListener();
 		primaryStage.setScene(mainMenuView.getMainMenuScene());

@@ -14,7 +14,13 @@ public class FroggerApplication extends Application{
 	   MainMenuView mainMenuView = new MainMenuView();
 	   MainMenuModel mainMenuModel = new MainMenuModel();
 	   MainMenuController mainMenuController = new MainMenuController(mainMenuView,mainMenuModel,primaryStage); 
-
+	   
 	   mainMenuController.start(); 
+	   
+//	   HighScoreView highScoreView = new HighScoreView();
+//	   HighScoreModel highScoreModel = new HighScoreModel();
+//	   HighScoreController highScoreController = new HighScoreController(highScoreView,highScoreModel,primaryStage);
+//	   highScoreController.start();
+	   
 	}	
 }

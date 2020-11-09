@@ -6,12 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
-public class MainMenuView {
+public class MainMenuView implements ViewInterface{
 	
 	private Button startButton;
 	private Button infoButton;
 	private Scene mainMenuScene;
-	public void createMainMenu() {
+	public void mainScreen() {
 		Pane mainMenu = new Pane();
 		ObservableList<Node> addChildren = mainMenu.getChildren();
 		mainMenuScene = new Scene(mainMenu,600,800);
