@@ -1,7 +1,6 @@
 package p4_group_8_repo;
 
 import javafx.stage.Stage;
-
 import javafx.application.Application;
 
 public class FroggerApplication extends Application{

@@ -102,8 +102,6 @@ public class Animal extends Actor {
 				if (noMove) {}
 				else {
 				if (event.getCode() == KeyCode.W) {	  
-					System.out.println("w" + w);
-					System.out.println("getY" + getY());
 					if (getY() < w) {
 						changeScore = true;
 						w = getY();
