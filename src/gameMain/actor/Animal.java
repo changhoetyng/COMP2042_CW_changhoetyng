@@ -2,6 +2,7 @@ package gameMain.actor;
 
 import java.util.ArrayList;
 
+import gameMain.game.GameController;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;

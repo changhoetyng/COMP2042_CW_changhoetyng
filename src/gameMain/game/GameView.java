@@ -91,6 +91,7 @@ public class GameView implements ViewInterface{
 		//background.add(obstacle2);
 		background.start();
 	}
+	
 	public Scene getScene() {
 		return this.scene;
 	}

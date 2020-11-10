@@ -6,6 +6,7 @@ import javafx.scene.control.Alert.AlertType;
 
 import java.util.*;
 
+import gameMain.SceneManager;
 import gameMain.actor.Animal;
 import gameMain.actor.Digit;
 import gameMain.world.MyStage;
@@ -16,10 +17,12 @@ public class GameModel {
 	private MyStage background;
 	private AnimationTimer timer;
 	private Animal animal;
+	private SceneManager sceneManager;
 	
-	public void setGameModel(MyStage background, Animal animal) {
+	public void setGameModel(MyStage background, Animal animal,SceneManager sceneManager) {
 		setBackground(background);
 		setAnimal(animal);
+		setSceneManager(sceneManager);
 	}
 
 	public void start() {
@@ -49,6 +52,7 @@ public class GameModel {
             		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
             		alert.setContentText("Highest Possible Score: 800");
             		alert.show();
+            		sceneManager.getMainMenuScene(sceneManager);
             	}
             }
         };
@@ -129,7 +133,15 @@ public class GameModel {
 		return timer;
 	}
 
+	
 
+	public SceneManager getSceneManager() {
+		return sceneManager;
+	}
+
+	public void setSceneManager(SceneManager sceneManager) {
+		this.sceneManager = sceneManager;
+	}
 
 	public void setTimer(AnimationTimer timer) {
 		this.timer = timer;
