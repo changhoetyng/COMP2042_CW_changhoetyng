@@ -13,6 +13,7 @@ public class MainMenuView implements ViewInterface{
 	private Button startButton;
 	private Button infoButton;
 	private Scene mainMenuScene;
+	
 	public void mainScreen() {
 		Pane mainMenu = new Pane();
 		ObservableList<Node> addChildren = mainMenu.getChildren();

@@ -4,6 +4,10 @@ import gameMain.game.GameController;
 import gameMain.game.GameFactory;
 import gameMain.game.GameModel;
 import gameMain.game.GameView;
+import gameMain.highScore.HighScoreController;
+import gameMain.highScore.HighScoreFactory;
+import gameMain.highScore.HighScoreModel;
+import gameMain.highScore.HighScoreView;
 import gameMain.mainMenu.MainMenuController;
 import gameMain.mainMenu.MainMenuFactory;
 import gameMain.mainMenu.MainMenuModel;
@@ -29,5 +33,12 @@ public class SceneManager {
 		GameModel gameModel = GameFactory.gameModelFactory();
 		GameController gameController = GameFactory.gameControllerFactory(gameView,gameModel,primaryStage,sceneManager);
 		gameController.start();
+	}
+	
+	public void getHighScoreScene(SceneManager sceneManager) {
+		HighScoreView highScoreView = HighScoreFactory.highScoreViewFactory();
+		HighScoreModel highScoreModel = HighScoreFactory.highScoreModelFactory();
+		HighScoreController highScoreController = HighScoreFactory.highScoreControllerFactory(highScoreView, highScoreModel, primaryStage, sceneManager);
+		highScoreController.start(highScoreController);
 	}
 }

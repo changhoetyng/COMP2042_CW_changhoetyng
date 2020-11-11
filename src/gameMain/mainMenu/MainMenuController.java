@@ -33,20 +33,12 @@ public class MainMenuController implements ControllerInterface{
 	public void startButtonListener() {
 		mainMenuView.getStartButton().setOnAction(e -> {
 			sceneManager.getGameScene(sceneManager);
-//			GameView gameView = GameFactory.gameViewFactory();
-//			GameModel gameModel = GameFactory.gameModelFactory();
-//			GameController gameController = GameFactory.gameControllerFactory(gameView,gameModel,primaryStage);
-//			gameController.start();
 		});
 	}
 	
 	public void infoButtonListener() {
 		mainMenuView.getInfoButton().setOnAction(e -> {
 			sceneManager.getGameScene(sceneManager);
-//			GameView gameView = GameFactory.gameViewFactory();
-//			GameModel gameModel = GameFactory.gameModelFactory();
-//			GameController gameController = GameFactory.gameControllerFactory(gameView,gameModel,primaryStage);
-//			gameController.start();
 		});
 	}
 	
