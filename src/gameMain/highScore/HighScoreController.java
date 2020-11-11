@@ -26,8 +26,15 @@ public class HighScoreController implements ControllerInterface{
 	public void start(HighScoreController highScoreController) {
 		highScoreView.setHighScoreController(highScoreController);
 		highScoreView.mainScreen();
+		highScoreButtonListener();
 		primaryStage.setScene(highScoreView.getHighScoreScene());
 		primaryStage.show();
+	}
+	
+	public void highScoreButtonListener() {
+		highScoreView.getMainMenuButton().setOnAction(e -> {
+			sceneManager.getMainMenuScene(sceneManager);
+		});
 	}
 	
 	public void writeScore(int score, ObservableList<Node> addChildren, int x, int y) {

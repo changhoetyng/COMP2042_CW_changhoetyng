@@ -35,8 +35,8 @@ public class SceneManager {
 		gameController.start();
 	}
 	
-	public void getHighScoreScene(SceneManager sceneManager) {
-		HighScoreView highScoreView = HighScoreFactory.highScoreViewFactory();
+	public void getHighScoreScene(SceneManager sceneManager, int score) {
+		HighScoreView highScoreView = HighScoreFactory.highScoreViewFactory(score);
 		HighScoreModel highScoreModel = HighScoreFactory.highScoreModelFactory();
 		HighScoreController highScoreController = HighScoreFactory.highScoreControllerFactory(highScoreView, highScoreModel, primaryStage, sceneManager);
 		highScoreController.start(highScoreController);

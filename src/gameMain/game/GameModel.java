@@ -47,12 +47,7 @@ public class GameModel {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-            		Alert alert = new Alert(AlertType.INFORMATION);
-            		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
-            		alert.setContentText("Highest Possible Score: 800");
-            		alert.show();
-            		sceneManager.getMainMenuScene(sceneManager);
+            		sceneManager.getHighScoreScene(sceneManager,animal.getPoints());
             	}
             }
         };

@@ -1,11 +1,7 @@
 package gameMain.mainMenu;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
+
 import gameMain.SceneManager;
-import gameMain.game.GameController;
-import gameMain.game.GameFactory;
-import gameMain.game.GameModel;
-import gameMain.game.GameView;
 import gameMain.mvcInterfaces.ControllerInterface;
 import javafx.stage.Stage;
 

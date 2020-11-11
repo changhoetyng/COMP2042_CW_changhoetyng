@@ -8,11 +8,11 @@ import javafx.stage.Stage;
 public class HighScoreFactory {
 private static final HashMap<String, Object>highScoreMap = new HashMap<String, Object>();
 	
-	public static HighScoreView highScoreViewFactory() {
+	public static HighScoreView highScoreViewFactory(int score) {
 		HighScoreView highScoreView = (HighScoreView)highScoreMap.get("highScoreView");
 		
 		if(highScoreView == null) {
-			highScoreView = new HighScoreView();
+			highScoreView = new HighScoreView(score);
 			highScoreMap.put("highScoreView", highScoreView);
 		}
 		return highScoreView;

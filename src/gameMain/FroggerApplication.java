@@ -11,6 +11,6 @@ public class FroggerApplication extends Application{
 	public void start(Stage primaryStage) throws Exception {
 	   primaryStage.setResizable(false);
 	   SceneManager sceneManager = new SceneManager(primaryStage);
-	   sceneManager.getHighScoreScene(sceneManager);
+	   sceneManager.getMainMenuScene(sceneManager);
 	}	
 }

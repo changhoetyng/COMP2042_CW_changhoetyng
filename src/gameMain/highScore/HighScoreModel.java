@@ -18,7 +18,6 @@ public class HighScoreModel {
     		  int d = score / 10;
     		  int k = score - d * 10;
     		  score = d; 
-    		  System.out.println("worm");
     		  addChildren.add(new Digit(k, dim, x - shift, y));
     		  shift+=30;
     		}
