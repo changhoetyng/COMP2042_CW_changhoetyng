@@ -218,6 +218,9 @@ public class Animal extends Actor {
 			if (points>50) {
 				points-=50;
 				changeScore = true;
+			} else {
+				points = 0;
+				changeScore = true;
 			}
 		}
 	}
@@ -245,6 +248,9 @@ public class Animal extends Actor {
 			noMove = false;
 			if (points>50) {
 				points-=50;
+				changeScore = true;
+			} else {
+				points = 0;
 				changeScore = true;
 			}
 		}

@@ -103,6 +103,9 @@ public class GameModel {
     public void setNumber(int n) {
     	int shift = 0;
     	background.getChildren().removeAll(background.lookupAll("Digit"));
+    	if (n == 0) {
+    		background.add(new Digit(0, 30, 360, 25));
+    	}
     	while (n > 0) {
     		  int d = n / 10;
     		  int k = n - d * 10;

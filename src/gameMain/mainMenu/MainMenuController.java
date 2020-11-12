@@ -34,7 +34,7 @@ public class MainMenuController implements ControllerInterface{
 	
 	public void infoButtonListener() {
 		mainMenuView.getInfoButton().setOnAction(e -> {
-			sceneManager.getGameScene(sceneManager);
+			sceneManager.getInfoScene(sceneManager);
 		});
 	}
 	
