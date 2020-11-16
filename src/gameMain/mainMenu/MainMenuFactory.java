@@ -18,21 +18,21 @@ public class MainMenuFactory {
 		return mainMenuView;
 	}
 	
-	public static MainMenuModel mainMenuModelFactory() {
+	public static MainMenuModel mainMenuModelFactory(Stage primaryStage, SceneManager sceneManager) {
 		MainMenuModel mainMenuModel = (MainMenuModel)mainMenuMap.get("mainMenuModel");
 		
 		if(mainMenuModel == null) {
-			mainMenuModel = new MainMenuModel();
+			mainMenuModel = new MainMenuModel(primaryStage,sceneManager);
 			mainMenuMap.put("mainMenuModel",mainMenuModel);
 		}
 		return mainMenuModel;
 	}
 	
-	public static MainMenuController mainMenuControllerFactory(MainMenuView mainMenuView, MainMenuModel mainMenuModel, Stage primaryStage, SceneManager sceneManager) {
+	public static MainMenuController mainMenuControllerFactory(MainMenuView mainMenuView, MainMenuModel mainMenuModel) {
 		MainMenuController mainMenuController = (MainMenuController)mainMenuMap.get("mainMenuController");
 		
 		if(mainMenuController == null) {
-			mainMenuController = new MainMenuController(mainMenuView,mainMenuModel,primaryStage,sceneManager);
+			mainMenuController = new MainMenuController(mainMenuView,mainMenuModel);
 			mainMenuMap.put("mainMenuController",mainMenuController);
 		}
 		return mainMenuController;

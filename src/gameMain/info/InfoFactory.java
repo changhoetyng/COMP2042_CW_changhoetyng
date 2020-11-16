@@ -22,21 +22,21 @@ public class InfoFactory {
 		return infoView;
 	}
 	
-	public static InfoModel infoModelFactory() {
+	public static InfoModel infoModelFactory(Stage primaryStage, SceneManager sceneManager) {
 		InfoModel infoModel = (InfoModel)infoMap.get("infoModel");
 		
 		if(infoModel == null) {
-			infoModel = new InfoModel();
+			infoModel = new InfoModel(primaryStage,sceneManager);
 			infoMap.put("infoModel",infoModel);
 		}
 		return infoModel;
 	}
 	
-	public static InfoController infoControllerFactory(InfoView infoView, InfoModel infoModel, Stage primaryStage, SceneManager sceneManager) {
+	public static InfoController infoControllerFactory(InfoView infoView, InfoModel infoModel) {
 		InfoController infoController = (InfoController)infoMap.get("infoController");
 		
 		if(infoController == null) {
-			infoController = new InfoController(infoView,infoModel,primaryStage,sceneManager);
+			infoController = new InfoController(infoView,infoModel);
 			infoMap.put("infoController",infoController);
 		}
 		return infoController;

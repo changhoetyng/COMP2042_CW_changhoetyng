@@ -14,20 +14,16 @@ import javafx.scene.Scene;
 
 
 public class GameView implements ViewInterface{
-	private MyStage background;
-	private Animal animal;
-	private Scene scene;
 	
-	public void mainScreen() {
-	 	background = new MyStage();
-	    scene  = new Scene(background,600,800);
+	public void mainScreen(MyStage background, Animal animal, Scene scene) {
+//	 	background = new MyStage();
+//	    scene  = new Scene(background,600,800);
 	    
 		//Obstacle obstacle = new Obstacle("file:src/media/pictures/truck1Right.png", 25, 25, 3);
 		//Obstacle obstacle1 = new Obstacle("file:src/media/pictures/truck2Right.png", 100, 100,2 );
 		//Obstacle obstacle2 = new Obstacle("file:src/media/pictures/truck1Right.png",0,  150, 1);
 
 		BackgroundImage froggerback = new BackgroundImage("file:src/media/pictures/backImageEdit.jpg");
-	    
 		background.add(froggerback);
 		
 		background.add(new Log("file:src/media/pictures/log3.png", 150, 0, 166, 0.75));
@@ -72,7 +68,7 @@ public class GameView implements ViewInterface{
 		background.add(new End(141 + 141-13,96));
 		background.add(new End(141 + 141-13+141-13+1,96));
 		background.add(new End(141 + 141-13+141-13+141-13+3,96));
-		animal = new Animal("file:src/media/pictures/froggerUp.png");
+//		animal = new Animal("file:src/media/pictures/froggerUp.png");
 		background.add(animal);
 		background.add(new Obstacle("file:src/media/pictures/truck1"+"Right.png", 0, 649, 1, 120, 120));
 		background.add(new Obstacle("file:src/media/pictures/truck1"+"Right.png", 300, 649, 1, 120, 120));
@@ -90,29 +86,5 @@ public class GameView implements ViewInterface{
 		//background.add(obstacle1);
 		//background.add(obstacle2);
 		background.start();
-	}
-	
-	public Scene getScene() {
-		return this.scene;
-	}
-	
-	public MyStage getBackground() {
-		return this.background;
-	}
-	
-	public Animal getAnimal() {
-		return this.animal;
-	}
-	
-	public void setScene(Scene scene) {
-		this.scene = scene;
-	}
-	
-	public void setBackground(MyStage background) {
-		this.background = background;
-	}
-	
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
 	}
 }

@@ -27,29 +27,29 @@ public class SceneManager {
 	
 	public void getMainMenuScene(SceneManager sceneManager) {
 		MainMenuView mainMenuView = MainMenuFactory.mainMenuViewFactory();
-		MainMenuModel mainMenuModel = MainMenuFactory.mainMenuModelFactory();
-		MainMenuController mainMenuController = MainMenuFactory.mainMenuControllerFactory(mainMenuView,mainMenuModel,primaryStage,sceneManager); 
+		MainMenuModel mainMenuModel = MainMenuFactory.mainMenuModelFactory(primaryStage,sceneManager);
+		MainMenuController mainMenuController = MainMenuFactory.mainMenuControllerFactory(mainMenuView,mainMenuModel); 
 		mainMenuController.start();
 	}
 	
 	public void getGameScene(SceneManager sceneManager) {
+		GameModel gameModel = GameFactory.gameModelFactory(sceneManager,primaryStage);
 		GameView gameView = GameFactory.gameViewFactory();
-		GameModel gameModel = GameFactory.gameModelFactory();
 		GameController gameController = GameFactory.gameControllerFactory(gameView,gameModel,primaryStage,sceneManager);
 		gameController.start();
 	}
 	
-	public void getHighScoreScene(SceneManager sceneManager, int score) {
-		HighScoreView highScoreView = HighScoreFactory.highScoreViewFactory(score);
-		HighScoreModel highScoreModel = HighScoreFactory.highScoreModelFactory();
-		HighScoreController highScoreController = HighScoreFactory.highScoreControllerFactory(highScoreView, highScoreModel, primaryStage, sceneManager);
+	public void getHighScoreScene(SceneManager sceneManager) {
+		HighScoreView highScoreView = HighScoreFactory.highScoreViewFactory();
+		HighScoreModel highScoreModel = HighScoreFactory.highScoreModelFactory(primaryStage,sceneManager);
+		HighScoreController highScoreController = HighScoreFactory.highScoreControllerFactory(highScoreView, highScoreModel);
 		highScoreController.start(highScoreController);
 	}
 	
 	public void getInfoScene(SceneManager sceneManager) {
 		InfoView infoView = InfoFactory.infoViewFactory();
-		InfoModel infoModel = InfoFactory.infoModelFactory();
-		InfoController infoController = InfoFactory.infoControllerFactory(infoView, infoModel, primaryStage, sceneManager);
+		InfoModel infoModel = InfoFactory.infoModelFactory(primaryStage, sceneManager);
+		InfoController infoController = InfoFactory.infoControllerFactory(infoView, infoModel);
 		infoController.start();
 	}
 }

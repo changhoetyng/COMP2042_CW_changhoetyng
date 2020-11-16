@@ -49,9 +49,11 @@ public class GameController implements ControllerInterface{
 	}
 	
 	public void start(){
-		gameView.mainScreen();
-		gameModel.setGameModel(gameView.getBackground(),gameView.getAnimal(),sceneManager);
-		primaryStage.setScene(gameView.getScene());
+		gameModel.setGameModelVar();
+		gameView.mainScreen(gameModel.getBackground(),gameModel.getAnimal(),gameModel.getScene());
+//		gameModel.setGameModel(gameView.getBackground(),gameView.getAnimal(),sceneManager);
+//		primaryStage.setScene(gameView.getScene());
+//		primaryStage.show();
 		gameModel.start();
 	}
 	

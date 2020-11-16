@@ -18,11 +18,11 @@ public class GameFactory {
 		return gameView;
 	}
 	
-	public static GameModel gameModelFactory() {
+	public static GameModel gameModelFactory(SceneManager sceneManager,Stage primaryStage) {
 		GameModel gameModel = (GameModel)gameMap.get("gameModel");
 		
 		if(gameModel == null) {
-			gameModel = new GameModel();
+			gameModel = new GameModel(sceneManager,primaryStage);
 			gameMap.put("gamemodel", gameModel);
 		}
 		return gameModel;

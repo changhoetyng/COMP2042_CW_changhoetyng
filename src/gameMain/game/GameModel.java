@@ -1,8 +1,12 @@
 package gameMain.game;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.util.*;
 
@@ -18,14 +22,23 @@ public class GameModel {
 	private AnimationTimer timer;
 	private Animal animal;
 	private SceneManager sceneManager;
+	private Scene scene;
+	private Stage primaryStage;
 	
-	public void setGameModel(MyStage background, Animal animal,SceneManager sceneManager) {
-		setBackground(background);
-		setAnimal(animal);
-		setSceneManager(sceneManager);
+	public GameModel(SceneManager sceneManager,Stage primaryStage) {
+		this.sceneManager = sceneManager;
+		this.primaryStage = primaryStage;
 	}
-
+	
+	public void setGameModelVar() {
+		this.background = new MyStage();
+		this.scene  = new Scene(background,600,800);
+		this.animal = new Animal("file:src/media/pictures/froggerUp.png");
+	}
+	
 	public void start() {
+		primaryStage.setScene(scene);
+        primaryStage.show();
 		background.playMusic();
     	createTimer();
         timer.start();
@@ -47,7 +60,7 @@ public class GameModel {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-            		sceneManager.getHighScoreScene(sceneManager,animal.getPoints());
+            		sceneManager.getHighScoreScene(sceneManager);
             	}
             }
         };
@@ -87,6 +100,12 @@ public class GameModel {
         writer.close();
 	}
 	
+	public void writeCurrentScore() throws IOException {
+		FileWriter writer = new FileWriter("src/media/text/currentScore.txt");
+        writer.write(Integer.toString(animal.getPoints()));
+        writer.close();
+	}
+	
 	public void createFileScore() throws IOException{
 		 ArrayList<Integer> list=new ArrayList<Integer>();
 		 readScore(list);
@@ -94,6 +113,7 @@ public class GameModel {
          Collections.sort(list);
          Collections.reverse(list);
          writeScore(list);
+         writeCurrentScore();
 	}
 	
 	public void stop() {
@@ -114,24 +134,30 @@ public class GameModel {
     		  shift+=30;
     		}
     }
-	
+
 	public MyStage getBackground() {
 		return background;
 	}
-
-
 
 	public void setBackground(MyStage background) {
 		this.background = background;
 	}
 
-
-
 	public AnimationTimer getTimer() {
 		return timer;
 	}
 
-	
+	public void setTimer(AnimationTimer timer) {
+		this.timer = timer;
+	}
+
+	public Animal getAnimal() {
+		return animal;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
 
 	public SceneManager getSceneManager() {
 		return sceneManager;
@@ -141,19 +167,20 @@ public class GameModel {
 		this.sceneManager = sceneManager;
 	}
 
-	public void setTimer(AnimationTimer timer) {
-		this.timer = timer;
+	public Scene getScene() {
+		return scene;
 	}
 
-
-
-	public Animal getAnimal() {
-		return animal;
+	public void setScene(Scene scene) {
+		this.scene = scene;
 	}
 
-
-
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
+	public Stage getPrimaryStage() {
+		return primaryStage;
 	}
+
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
+    
 }

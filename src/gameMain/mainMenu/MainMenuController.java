@@ -1,41 +1,21 @@
 package gameMain.mainMenu;
 
 
-import gameMain.SceneManager;
 import gameMain.mvcInterfaces.ControllerInterface;
-import javafx.stage.Stage;
 
 public class MainMenuController implements ControllerInterface{
 	private MainMenuView mainMenuView;
 	private MainMenuModel mainMenuModel;
-	private Stage primaryStage;
-	private SceneManager sceneManager;
 	
-	public MainMenuController(MainMenuView mainMenuView,MainMenuModel mainMenuModel,Stage primaryStage, SceneManager sceneManager){
+	public MainMenuController(MainMenuView mainMenuView,MainMenuModel mainMenuModel){
 		setMainMenuView(mainMenuView);
 		setMainMenuModel(mainMenuModel);
-		setPrimaryStage(primaryStage);
-		setSceneManager(sceneManager);
 	}
 	
 	public void start() {
-		mainMenuView.mainScreen();
-		startButtonListener();
-		infoButtonListener();
-		primaryStage.setScene(mainMenuView.getMainMenuScene());
-		primaryStage.show();
-	}
-	
-	public void startButtonListener() {
-		mainMenuView.getStartButton().setOnAction(e -> {
-			sceneManager.getGameScene(sceneManager);
-		});
-	}
-	
-	public void infoButtonListener() {
-		mainMenuView.getInfoButton().setOnAction(e -> {
-			sceneManager.getInfoScene(sceneManager);
-		});
+		mainMenuModel.setMainMenuVar();
+		mainMenuView.mainScreen(mainMenuModel.getStartButton(),mainMenuModel.getInfoButton(),mainMenuModel.getMainMenuScene(),mainMenuModel.getMainMenu());
+		mainMenuModel.start();
 	}
 	
 	public MainMenuView getMainMenuView() {
@@ -50,20 +30,4 @@ public class MainMenuController implements ControllerInterface{
 	public void setMainMenuModel(MainMenuModel mainMenuModel) {
 		this.mainMenuModel = mainMenuModel;
 	}
-	
-	public Stage getPrimaryStage() {
-		return primaryStage;
-	}
-	public void setPrimaryStage(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-	}
-
-	public SceneManager getSceneManager() {
-		return sceneManager;
-	}
-
-	public void setSceneManager(SceneManager sceneManager) {
-		this.sceneManager = sceneManager;
-	}
-	
 }

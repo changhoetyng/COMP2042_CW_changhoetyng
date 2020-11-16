@@ -12,23 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
 public class HighScoreView implements ViewInterface{
-	private Button mainMenuButton;
-	private Scene highScoreScene;
-	private HighScoreController highScoreController;
-	private ArrayList<Integer> list;
-	private int score;
 	
-	public HighScoreView(int score) {
-		this.score = score;
-	}
-	
-	public void mainScreen() {
-		Pane mainMenu = new Pane();
+	public void mainScreen(Button mainMenuButton, HighScoreController highScoreController, int score, Pane mainMenu, Scene highScoreScene) {
 		ObservableList<Node> addChildren = mainMenu.getChildren();
-		highScoreScene = new Scene(mainMenu,600,800);
 		highScoreScene.getStylesheets().add("file:src/gameMain/styleSheet/mainMenuStyle.css");
 		
-		mainMenuButton = new Button();
 		mainMenuButton.setLayoutX(215);
 		mainMenuButton.setLayoutY(650);
 		BackgroundImage startImg = new BackgroundImage("file:src/media/pictures/mainMenu.png");
@@ -77,7 +65,7 @@ public class HighScoreView implements ViewInterface{
 		five.setPreserveRatio(true);
 		five.setLayoutY(485);
 		five.setLayoutX(70);
-		
+
 		addChildren.add(new BackgroundImage("file:src/media/pictures/backImageEdit.jpg"));
 		addChildren.add(mainMenuButton);
 		addChildren.add(hiScore);
@@ -87,74 +75,18 @@ public class HighScoreView implements ViewInterface{
 		addChildren.add(three);
 		addChildren.add(four);
 		addChildren.add(five);
-		highScoreController.writeScore(this.score,addChildren,360,30);
+		highScoreController.writeScore(score,addChildren,360,30);
 		try {
+			ArrayList<Integer> list;
 			list = highScoreController.getHighScore();
+			int yShift = 0;
+			for(Integer scored: list) {
+				highScoreController.writeScore(scored,addChildren,200,245 + yShift);
+				yShift += 62;
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		int yShift = 0;
-		for(Integer score: list) {
-			highScoreController.writeScore(score,addChildren,200,245 + yShift);
-			yShift += 62;
-		}
+		
 	}
-	
-	
-	
-	public HighScoreController getHighScoreController() {
-		return highScoreController;
-	}
-
-
-
-	public void setHighScoreController(HighScoreController highScoreController) {
-		this.highScoreController = highScoreController;
-	}
-	
-	
-
-	public int getScore() {
-		return score;
-	}
-
-	public void setScore(int score) {
-		this.score = score;
-	}
-
-	public Scene getHighScoreScene() {
-		return highScoreScene;
-	}
-
-	public void setHighScoreScene(Scene highScoreScene) {
-		this.highScoreScene = highScoreScene;
-	}
-
-
-
-	public Button getMainMenuButton() {
-		return mainMenuButton;
-	}
-
-
-
-	public void setMainMenuButton(Button mainMenuButton) {
-		this.mainMenuButton = mainMenuButton;
-	}
-
-
-
-	public ArrayList<Integer> getList() {
-		return list;
-	}
-
-
-
-	public void setList(ArrayList<Integer> list) {
-		this.list = list;
-	}
-	
-	
-
-	
 }

@@ -9,13 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
 public class InfoView implements ViewInterface{
-		private Button mainMenuButton;
-		private Scene mainMenuScene;
-		public void mainScreen() {
-			Pane mainMenu = new Pane();
-			ObservableList<Node> addChildren = mainMenu.getChildren();
-			mainMenuScene = new Scene(mainMenu,600,800);
-			mainMenuScene.getStylesheets().add("file:src/gameMain/styleSheet/mainMenuStyle.css");
+
+		public void mainScreen(Scene infoScene, Button mainMenuButton, Pane info) {
+			ObservableList<Node> addChildren = info.getChildren();
+			
+			infoScene.getStylesheets().add("file:src/gameMain/styleSheet/mainMenuStyle.css");
 			
 			BackgroundImage frog = new BackgroundImage("file:src/media/pictures/icon-frogger-pixel-512x512.png");
 			frog.setFitWidth(50);
@@ -89,7 +87,7 @@ public class InfoView implements ViewInterface{
 			nfifty.setLayoutY(482);
 			nfifty.setLayoutX(60);
 
-			mainMenuButton = new Button();
+			
 			mainMenuButton.setLayoutX(180);
 			mainMenuButton.setLayoutY(710);
 			BackgroundImage mainMenuImg = new BackgroundImage("file:src/media/pictures/mainMenu.png");
@@ -111,25 +109,6 @@ public class InfoView implements ViewInterface{
 			addChildren.add(fifty);
 			addChildren.add(nfifty);
 			addChildren.add(mainMenuButton);
-		}
-		
-		public Button getMainMenuButton() {
-			return mainMenuButton;
-		}
-
-
-
-		public void setMainMenuButton(Button mainMenuButton) {
-			this.mainMenuButton = mainMenuButton;
-		}
-
-
-
-		public Scene getMainMenuScene() {
-			return mainMenuScene;
-		}
-		public void setMainMenuScene(Scene mainMenuScene) {
-			this.mainMenuScene = mainMenuScene;
 		}
 }
 	
