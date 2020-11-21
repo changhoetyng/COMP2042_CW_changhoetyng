@@ -18,12 +18,28 @@ import gameMain.mainMenu.MainMenuModel;
 import gameMain.mainMenu.MainMenuView;
 import javafx.stage.Stage;
 
+/**
+ * Manage scene between screens.
+ */
+
 public class SceneManager {
 	private Stage primaryStage;
+	
+	/**
+	 * Passed in Primary Stage during initialization for
+	 * the model of the respective scene.
+	 * @param primaryStage The primary stage for this application
+	 */
 	
 	public SceneManager(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
+	
+	/**
+	 * Swap stage into Main Menu upon calling this method.
+	 * @param sceneManager Passed in SceneManager for the Main Menu to 
+	 * call other scenes if needed.
+	 */
 	
 	public void getMainMenuScene(SceneManager sceneManager) {
 		MainMenuView mainMenuView = MainMenuFactory.mainMenuViewFactory();
@@ -32,6 +48,12 @@ public class SceneManager {
 		mainMenuController.start();
 	}
 	
+	/**
+	 * Swap stage into Game upon calling this method.
+	 * @param sceneManager Passed in SceneManager for the Game to 
+	 * call other scenes if needed.
+	 */
+	
 	public void getGameScene(SceneManager sceneManager) {
 		GameModel gameModel = GameFactory.gameModelFactory(sceneManager,primaryStage);
 		GameView gameView = GameFactory.gameViewFactory();
@@ -39,12 +61,24 @@ public class SceneManager {
 		gameController.start();
 	}
 	
+	/**
+	 * Swap stage into High Score upon calling this method.
+	 * @param sceneManager Passed in SceneManager for the High Score to 
+	 * call other scenes if needed.
+	 */
+	
 	public void getHighScoreScene(SceneManager sceneManager) {
 		HighScoreView highScoreView = HighScoreFactory.highScoreViewFactory();
 		HighScoreModel highScoreModel = HighScoreFactory.highScoreModelFactory(primaryStage,sceneManager);
 		HighScoreController highScoreController = HighScoreFactory.highScoreControllerFactory(highScoreView, highScoreModel);
 		highScoreController.start(highScoreController);
 	}
+	
+	/**
+	 * Swap stage into Info upon calling this method.
+	 * @param sceneManager Passed in SceneManager for the Info to 
+	 * call other scenes if needed.
+	 */
 	
 	public void getInfoScene(SceneManager sceneManager) {
 		InfoView infoView = InfoFactory.infoViewFactory();

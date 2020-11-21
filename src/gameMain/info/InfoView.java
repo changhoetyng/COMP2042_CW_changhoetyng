@@ -1,15 +1,26 @@
 package gameMain.info;
 
 import gameMain.actor.BackgroundImage;
-import gameMain.mvcInterfaces.ViewInterface;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
-public class InfoView implements ViewInterface{
+/**
+ * View of the info screen.
+ * Responsible for all the visuals of the screen.
+ */
 
+public class InfoView{
+		
+		/**
+		 * All the visuals in the Info Screen are created here.
+		 * @param infoScene Represents the physical contents of Info Screen.
+		 * @param mainMenuButton Button that leads to main menu upon clicking.
+		 * @param info Pane for the Info Screen.
+		 */
+	
 		public void mainScreen(Scene infoScene, Button mainMenuButton, Pane info) {
 			ObservableList<Node> addChildren = info.getChildren();
 			

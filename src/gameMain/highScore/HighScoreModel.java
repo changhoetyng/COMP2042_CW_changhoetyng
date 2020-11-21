@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import gameMain.SceneManager;
 import gameMain.actor.Digit;
+import gameMain.mvcInterface.MvcModel;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -16,25 +17,41 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class HighScoreModel {
+/**
+ * Model of the High Score Screen
+ * Responsible for all the data needed to run High Score Screen.
+ */
+
+public class HighScoreModel implements MvcModel{
 	private Button mainMenuButton;//
 	private int score;
 	private Scene highScoreScene;
 	private Stage primaryStage; //
 	private SceneManager sceneManager;//
-	private Pane mainMenu;//
+	private Pane highScorePane;//
+	
+	/**
+	 * 
+	 * @param primaryStage The primaryStage of the javafx.
+	 * @param sceneManager For changing scene
+	 */
 	
 	public HighScoreModel(Stage primaryStage, SceneManager sceneManager) {
 		this.primaryStage = primaryStage;
 		this.sceneManager = sceneManager;
 	}
 	
-	public void setHighScoreVar() {
-		this.mainMenu = new Pane();
+	public void setVar() {
+		this.highScorePane = new Pane();
 		this.mainMenuButton = new Button();
-		this.highScoreScene = new Scene(mainMenu,600,800);
+		this.highScoreScene = new Scene(highScorePane,600,800);
 		this.score = getCurrentHighScore();
 	}
+	
+	/**
+	 * Read current score.
+	 * @return The latest score.
+	 */
 	
 	public int getCurrentHighScore(){
 		try {
@@ -62,11 +79,23 @@ public class HighScoreModel {
 		primaryStage.show();
 	}
 	
+	/**
+	 * Navigate to main menu upon clicking mainMenuButton.
+	 */
+	
 	public void highScoreButtonListener() {
 		mainMenuButton.setOnAction(e -> {
 			sceneManager.getMainMenuScene(sceneManager);
 		});
 	}
+	
+	/**
+	 * Write a new number into the screen.
+	 * @param score Score
+	 * @param addChildren Pane.getChildren()
+	 * @param x X coordinates
+	 * @param y Y coordinates.
+	 */
 	
 	public void setNumber(int score, ObservableList<Node> addChildren, int x, int y) {
 		int shift = 0;
@@ -80,6 +109,14 @@ public class HighScoreModel {
     		}
     	
     }
+	
+	/**
+	 * Read score from text file and store it in a list.
+	 * @param list A newly initialized list that are going to store
+	 * the top 5 high score from a text file after this method was called.
+	 * @throws IOException Signals that an I/O exception of some sort has occurred. 
+	 * This class is the general class of exceptions produced by failed or interrupted I/O operations.
+	 */
 	
 	public ArrayList<Integer> getHighScore() throws IOException{
 		ArrayList<Integer> list=new ArrayList<Integer>();
@@ -101,51 +138,111 @@ public class HighScoreModel {
 		}
 		return list;
 	}
-
+	
+	/**
+	 * mainMenuButton, Getter
+	 * @return mainMenuButton
+	 */
+	
 	public Button getMainMenuButton() {
 		return mainMenuButton;
 	}
-
+	
+	/**
+	 * mainMenuButton,Setter
+	 * @param mainMenuButton mainMenuButton
+	 */
+	
 	public void setMainMenuButton(Button mainMenuButton) {
 		this.mainMenuButton = mainMenuButton;
 	}
-
+	
+	/**
+	 * score, Getter
+	 * @return score
+	 */
+	
 	public int getScore() {
 		return score;
 	}
-
+	
+	/**
+	 * score, Setter
+	 * @param score score
+	 */
+	
 	public void setScore(int score) {
 		this.score = score;
 	}
-
+	
+	/**
+	 * primaryStage, Getter
+	 * @return primaryStage
+	 */
+	
 	public Stage getPrimaryStage() {
 		return primaryStage;
 	}
 
+	/**
+	 * primaryStage, Setter
+	 * @param primaryStage primaryStage
+	 */
+	
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
 
+	/**
+	 * sceneManager, Getter
+	 * @return sceneManager
+	 */
+	
 	public SceneManager getSceneManager() {
 		return sceneManager;
 	}
-
+	
+	/**
+	 * sceneManager, Setter
+	 * @param sceneManager sceneManager
+	 */
+	
 	public void setSceneManager(SceneManager sceneManager) {
 		this.sceneManager = sceneManager;
 	}
+	
+	/**
+	 * highScorePane, Getter
+	 * @return highScorePane
+	 */
 
-	public Pane getMainMenu() {
-		return mainMenu;
+	public Pane getHighScorePane() {
+		return highScorePane;
 	}
-
-	public void setMainMenu(Pane mainMenu) {
-		this.mainMenu = mainMenu;
+	
+	/**
+	 * highScorePane, Setter
+	 * @param mainMenu mainMenu
+	 */
+	
+	public void setHighScorePane(Pane mainMenu) {
+		this.highScorePane = mainMenu;
 	}
-
+	
+	/**
+	 * highScoreScene, Getter
+	 * @return highScoreScene
+	 */
+	
 	public Scene getHighScoreScene() {
 		return highScoreScene;
 	}
-
+	
+	/**
+	 * highScoreScene, Setter
+	 * @param highScoreScene
+	 */
+	
 	public void setHighScoreScene(Scene highScoreScene) {
 		this.highScoreScene = highScoreScene;
 	}

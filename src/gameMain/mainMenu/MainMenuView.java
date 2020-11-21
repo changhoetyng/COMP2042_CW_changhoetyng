@@ -1,13 +1,25 @@
 package gameMain.mainMenu;
 import gameMain.actor.BackgroundImage;
-import gameMain.mvcInterfaces.ViewInterface;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
-public class MainMenuView implements ViewInterface{
+/**
+ * View of the Main Menu screen.
+ * Responsible for all the visuals of the screen.
+ */
+
+public class MainMenuView{
+	
+	/**
+	 * All the visuals in the Info Screen are created here.A\
+	 * @param startButton Navigate to game upon clicking startButton.
+	 * @param infoButton Navigate to info screen upon clicking infoButton.
+	 * @param mainMenuScene Represents the physical contents of Main Menu Screen.
+	 * @param mainMenu Pane for the Main Menu Screen
+	 */
 	
 	public void mainScreen(Button startButton, Button infoButton, Scene mainMenuScene, Pane mainMenu) {
 		ObservableList<Node> addChildren = mainMenu.getChildren();

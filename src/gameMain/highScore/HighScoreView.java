@@ -4,17 +4,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import gameMain.actor.BackgroundImage;
-import gameMain.mvcInterfaces.ViewInterface;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
-public class HighScoreView implements ViewInterface{
+/**
+ * View of the High Score screen.
+ * Responsible for all the visuals of the screen.
+ */
+
+public class HighScoreView{
 	
-	public void mainScreen(Button mainMenuButton, HighScoreController highScoreController, int score, Pane mainMenu, Scene highScoreScene) {
-		ObservableList<Node> addChildren = mainMenu.getChildren();
+	/**
+	 * All the visuals in the Main Menu Screen are created here.
+	 * @param mainMenuButton Button that leads to main menu upon clicking.
+	 * @param highScoreController High Score Controller
+	 * @param score Current score
+	 * @param highScore Pane for the High Score Screen
+	 * @param highScoreScene Represents the physical contents of High Score Screen.
+	 */
+	
+	public void mainScreen(Button mainMenuButton, HighScoreController highScoreController, int score, Pane highScore, Scene highScoreScene) {
+		ObservableList<Node> addChildren = highScore.getChildren();
 		highScoreScene.getStylesheets().add("file:src/gameMain/styleSheet/mainMenuStyle.css");
 		
 		mainMenuButton.setLayoutX(215);
