@@ -148,14 +148,7 @@ public class Animal extends Actor {
 	@Override
 	public void act(long now) {
 		if (isStop()) {
-			ArrayList<End> actorIntersects = new ArrayList<End>();
-			actorIntersects = getObject(End.class);
-			actorIntersects.get(0).beforeEnd(13,96);
-			actorIntersects.get(1).beforeEnd(141,96);
-			actorIntersects.get(2).beforeEnd(141 + 141-13,96);
-			actorIntersects.get(3).beforeEnd(141 + 141-13+141-13+1,96);
-			actorIntersects.get(4).beforeEnd(141 + 141-13+141-13+141-13+3,96);
-			end = 0;
+			changeEndPlatform();
 		}
 		if (getY()<0 || getY()>734) {
 			setX(300);
@@ -170,12 +163,16 @@ public class Animal extends Actor {
 		if (waterDeath) {
 			waterDeath(now);
 		}
-		
 		if (getX()>600) {
 			move(-movement*2, 0);
 		}
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			carDeath = true;
+		}
+		if (getIntersectingObjects(End.class).size() >= 1) {
+			if(getOneIntersectingObject(End.class).getActivated() == true) {
+				move(0,movement);
+			}
 		}
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft())
@@ -194,24 +191,48 @@ public class Animal extends Actor {
 			}
 		}
 		else if (getIntersectingObjects(End.class).size() >= 1) {
-			inter = (ArrayList<End>) getIntersectingObjects(End.class);
-			if (getIntersectingObjects(End.class).get(0).getActivated()) {
-				end--;
-				points-=50;
-			}
-			points+=50;
-			changeScore = true;
-			w=800;
-			getIntersectingObjects(End.class).get(0).setEnd();
-			end++;
-			setX(300);
-			setY(679.8+movement);
+			resetFrog();
 		}
 		else if (getY()<413){
 			waterDeath = true;
 			//setX(300);
 			//setY(679.8+movement);
 		}
+	}
+	
+	/**
+	 * Reset end platform if the amount of end platform with frogs 
+	 * is equal to the local int end.
+	 */
+	
+	public void changeEndPlatform() {
+		ArrayList<End> getEnd = new ArrayList<End>();
+		getEnd = getObject(End.class);
+		getEnd.get(0).beforeEnd(13,96);
+		getEnd.get(1).beforeEnd(141,96);
+		getEnd.get(2).beforeEnd(141 + 141-13,96);
+		getEnd.get(3).beforeEnd(141 + 141-13+141-13+1,96);
+		getEnd.get(4).beforeEnd(141 + 141-13+141-13+141-13+3,96);
+		end = 0;
+	}
+	
+	/**
+	 * Reset the frog to it's original position.
+	 */
+	
+	public void resetFrog() {
+		inter = (ArrayList<End>) getIntersectingObjects(End.class);
+		if (getIntersectingObjects(End.class).get(0).getActivated()) {
+			end--;
+			points-=50;
+		}
+		points+=50;
+		changeScore = true;
+		w=800;
+		getIntersectingObjects(End.class).get(0).setEnd();
+		end++;
+		setX(300);
+		setY(679.8+movement);
 	}
 	
 	/**

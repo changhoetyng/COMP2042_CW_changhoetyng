@@ -1,10 +1,7 @@
 package gameMain.game;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -14,8 +11,7 @@ import java.util.*;
 import gameMain.SceneManager;
 import gameMain.actor.Animal;
 import gameMain.actor.Digit;
-import gameMain.actor.End;
-import gameMain.actor.Score;
+import gameMain.actor.TimeCountdown;
 import gameMain.world.MyStage;
 import java.io.*;
 import java.util.Timer;
@@ -219,17 +215,20 @@ public class GameModel implements MvcModel{
     }
     
 	/**
-	 * 
+	 * Set a new number for the time in the game every seconds
+	 * @param time Time in seconds 
+	 * @param x x coordinates
+	 * @param y y coordinates
 	 */
-	public void setNumber(int score, int x, int y) {
+	public void setNumber(int time, int x, int y) {
 		int shift = 0;
 		int dim = 30;
-		background.getChildren().removeAll(background.lookupAll("Score"));
-    	while (score > 0) {
-    		  int d = score / 10;
-    		  int k = score - d * 10;
-    		  score = d; 
-    		  background.add(new Score(k, dim, x - shift, y));
+		background.getChildren().removeAll(background.lookupAll("TimeCountdown"));
+    	while (time > 0) {
+    		  int d = time / 10;
+    		  int k = time - d * 10;
+    		  time = d; 
+    		  background.add(new TimeCountdown(k, dim, x - shift, y));
     		  shift+=30;
     		}
     	

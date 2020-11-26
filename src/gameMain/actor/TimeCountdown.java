@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
  * Represents the number character in the game.
  */
 
-public class Score extends Actor{
+public class TimeCountdown extends Actor{
 	private int dim;
 	private Image im1;
 	@Override
@@ -25,7 +25,7 @@ public class Score extends Actor{
 	 * @param y Y coordinates
 	 */
 	
-	public Score(int n, int dim, int x, int y) {
+	public TimeCountdown(int n, int dim, int x, int y) {
 		im1 = new Image("file:src/media/pictures/"+n+".png", dim, dim, true, true);
 		setImage(im1);
 		setX(x);

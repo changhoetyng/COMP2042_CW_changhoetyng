@@ -32,6 +32,12 @@ public class InfoModel implements MvcModel{
 		this.sceneManager = sceneManager;
 	}
 	
+	/**
+	 * For javaFx testing purposes.
+	 */
+	
+	public InfoModel() {}
+	
 	public void setVar() {
 		this.info = new Pane();
 		this.infoScene = new Scene(info,600,800);
@@ -49,6 +55,9 @@ public class InfoModel implements MvcModel{
 	 */
 	
 	public void mainMenuButtonListener() {
+		if(mainMenuButton == null) {
+    		throw new NullPointerException("Button is not initialized");  
+    	}
 		mainMenuButton.setOnAction(e -> {
 			sceneManager.getMainMenuScene(sceneManager);
 		});

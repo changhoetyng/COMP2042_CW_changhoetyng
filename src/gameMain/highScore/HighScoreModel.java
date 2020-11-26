@@ -116,10 +116,9 @@ public class HighScoreModel implements MvcModel{
 	
 	/**
 	 * Read score from text file and store it in a list.
-	 * @param list A newly initialized list that are going to store
-	 * the top 5 high score from a text file after this method was called.
 	 * @throws IOException Signals that an I/O exception of some sort has occurred. 
 	 * This class is the general class of exceptions produced by failed or interrupted I/O operations.
+	 * @return An ArrayList of high score.
 	 */
 	
 	public ArrayList<Integer> getHighScore() throws IOException{
@@ -244,7 +243,7 @@ public class HighScoreModel implements MvcModel{
 	
 	/**
 	 * highScoreScene, Setter
-	 * @param highScoreScene
+	 * @param highScoreScene highScoreScene
 	 */
 	
 	public void setHighScoreScene(Scene highScoreScene) {

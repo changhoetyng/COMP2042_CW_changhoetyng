@@ -53,7 +53,7 @@ public class GameFactory {
 	 * @param gameModel Model of the game.
 	 * @param primaryStage The primaryStage of the javafx.
 	 * @param sceneManager For changing scene.
-	 * @return
+	 * @return gameController
 	 */
 	
 	public static GameController gameControllerFactory(GameView gameView,GameModel gameModel,Stage primaryStage,SceneManager sceneManager) {

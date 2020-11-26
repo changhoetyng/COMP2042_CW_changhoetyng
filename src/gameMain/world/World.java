@@ -20,7 +20,7 @@ import javafx.scene.layout.Pane;
 
 public abstract class World extends Pane {
     private AnimationTimer timer;
-    	
+    
     /**
      * Initialized world for the game
      */
