@@ -23,9 +23,20 @@ public class End extends Actor{
 	 */
 	
 	public End(int x, int y) {
+		beforeEnd(x,y);
+	}
+	
+	/**
+	 * Add platform without frog in it into the game
+	 * @param x X coordinates
+	 * @param y Y coordinates
+	 */
+	
+	public void beforeEnd(int x, int y) {
 		setX(x);
 		setY(y);
 		setImage(new Image("file:src/media/pictures/End.png", 60, 60, true, true));
+		activated = false;
 	}
 	
 	/**

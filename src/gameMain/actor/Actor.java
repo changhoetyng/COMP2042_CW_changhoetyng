@@ -74,6 +74,20 @@ public abstract class Actor extends ImageView{
         return actorIntersects.get(0);
     }
     
+   /**
+    * Get object from the class.
+    * @param <A> Actor
+    * @param cls Import an actor.
+    * @return A list of actors.
+    */
+   public <A extends Actor> ArrayList<A> getObject(java.lang.Class<A> cls){
+	   ArrayList<A> actors = new ArrayList<A>();
+	   for (A actor: getWorld().getObjects(cls)) {
+		   actors.add(actor);
+       }
+       return actors;
+   }
+    
     /**
      * Abstract class for the actor to act accordingly
      * when the timer starts

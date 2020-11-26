@@ -41,6 +41,10 @@ public class HighScoreModel implements MvcModel{
 		this.sceneManager = sceneManager;
 	}
 	
+	/**
+	 * Initialized variable for other HighScore.
+	 */
+	
 	public void setVar() {
 		this.highScorePane = new Pane();
 		this.mainMenuButton = new Button();

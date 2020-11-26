@@ -152,6 +152,7 @@ public abstract class World extends Pane {
         getChildren().remove(actor);
     }
     
+    
     /**
      * Find the actor located in world and store it in an array
      * @param <A> Actor

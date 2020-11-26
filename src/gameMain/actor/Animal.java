@@ -2,6 +2,9 @@ package gameMain.actor;
 
 import java.util.ArrayList;
 
+
+
+import gameMain.world.World;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;
@@ -144,6 +147,16 @@ public class Animal extends Actor {
 	
 	@Override
 	public void act(long now) {
+		if (isStop()) {
+			ArrayList<End> actorIntersects = new ArrayList<End>();
+			actorIntersects = getObject(End.class);
+			actorIntersects.get(0).beforeEnd(13,96);
+			actorIntersects.get(1).beforeEnd(141,96);
+			actorIntersects.get(2).beforeEnd(141 + 141-13,96);
+			actorIntersects.get(3).beforeEnd(141 + 141-13+141-13+1,96);
+			actorIntersects.get(4).beforeEnd(141 + 141-13+141-13+141-13+3,96);
+			end = 0;
+		}
 		if (getY()<0 || getY()>734) {
 			setX(300);
 			setY(679.8+movement);
@@ -277,6 +290,10 @@ public class Animal extends Actor {
 			}
 		}
 	}
+	
+	public World getWorld() {
+        return (World) getParent();
+    }
 	
 	/**
 	 * Determines if the score needed to be changed.

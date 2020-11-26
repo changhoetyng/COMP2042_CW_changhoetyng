@@ -1,21 +1,24 @@
 package gameMain.game;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import gameMain.mvcInterface.*;
 import java.util.*;
-
 import gameMain.SceneManager;
 import gameMain.actor.Animal;
 import gameMain.actor.Digit;
+import gameMain.actor.End;
+import gameMain.actor.Score;
 import gameMain.world.MyStage;
-
 import java.io.*;
+import java.util.Timer;
 
 /**
  * Model of the game.
@@ -29,6 +32,17 @@ public class GameModel implements MvcModel{
 	private SceneManager sceneManager;
 	private Scene scene;
 	private Stage primaryStage;
+	private Timer countdownTimer;
+	private int interval;
+	private boolean timeUp = false;
+	
+	/**
+	 * For JUnit testing purposes
+	 */
+	
+	public GameModel() {
+		
+	}
 	
 	/**
 	 * @param sceneManager For changing scene
@@ -39,6 +53,10 @@ public class GameModel implements MvcModel{
 		this.sceneManager = sceneManager;
 		this.primaryStage = primaryStage;
 	}
+	
+	/**
+	 * Initialized variable for other HighScore.
+	 */
 	
 	public void setVar() {
 		this.background = new MyStage();
@@ -51,7 +69,33 @@ public class GameModel implements MvcModel{
         primaryStage.show();
 		background.playMusic();
     	createTimer();
+    	setTimer();
         timer.start();
+	}
+	
+	/**
+	 * Timer for the game
+	 */
+	
+	public void setTimer() {
+	    countdownTimer = new Timer();
+	    interval = 60;
+	    timeUp = false;
+	    countdownTimer.scheduleAtFixedRate(new TimerTask() {
+	        public void run() {
+	        	Platform.runLater(() -> {
+	        		 if(interval > 0)
+	 	            {
+	 	                setNumber(interval,125,5);
+	 	                interval--;
+	 	            }
+	 	            else {
+	 	            countdownTimer.cancel();
+	 	            timeUp = true;
+	 	           }
+	        	});
+	        }
+	    }, 1000,1000);
 	}
 	
 	/**
@@ -59,15 +103,14 @@ public class GameModel implements MvcModel{
 	 * every actors in the game will start acting
 	 * based on their act function.
 	 */
-	
 	public void createTimer() {
         timer = new AnimationTimer() {
-            @Override
+			@Override
             public void handle(long now) {
             	if (animal.changeScore()) {
             		setNumber(animal.getPoints());
             	}
-            	if (animal.isStop()) {
+            	if (timeUp == true) {
             		System.out.print("STOPP:");
             		background.stopMusic();
             		stop();
@@ -78,7 +121,6 @@ public class GameModel implements MvcModel{
 						Alert alert = new Alert(AlertType.INFORMATION);
 	            		alert.setTitle("You Have Won The Game!");
 	            		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
-	            		alert.setContentText("Top 5 Score\n1." + list.get(0) + "\n2." + list.get(1)+ "\n3." + list.get(2)+ "\n4." + list.get(3)+ "\n5." + list.get(4));
 	            		alert.show();
 					} catch (IOException e) {
 						e.printStackTrace();
@@ -91,7 +133,7 @@ public class GameModel implements MvcModel{
 	
 	/**
 	 * Read score from text file and store it in a list.
-	 * @param A newly initialized list that are going to store
+	 * @param list A newly initialized list that are going to store
 	 * the top 5 high score from a text file after this method was called.
 	 * @throws IOException Signals that an I/O exception of some sort has occurred. 
 	 * This class is the general class of exceptions produced by failed or interrupted I/O operations.
@@ -177,11 +219,32 @@ public class GameModel implements MvcModel{
     }
     
 	/**
+	 * 
+	 */
+	public void setNumber(int score, int x, int y) {
+		int shift = 0;
+		int dim = 30;
+		background.getChildren().removeAll(background.lookupAll("Score"));
+    	while (score > 0) {
+    		  int d = score / 10;
+    		  int k = score - d * 10;
+    		  score = d; 
+    		  background.add(new Score(k, dim, x - shift, y));
+    		  shift+=30;
+    		}
+    	
+    }
+	
+	/**
 	 * Set a new number for the score in game if change score is needed.
 	 * @param n The current score.
+	 * @throws ArithmeticException Score is negative
 	 */
 	
     public void setNumber(int n) {
+    	if(n<0) {
+    		throw new ArithmeticException("Score cannot be negative");  
+    	}
     	int shift = 0;
     	background.getChildren().removeAll(background.lookupAll("Digit"));
     	if (n == 0) {

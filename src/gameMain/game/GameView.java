@@ -26,6 +26,11 @@ public class GameView{
 	
 	public void mainScreen(MyStage background, Animal animal) {
 		BackgroundImage froggerback = new BackgroundImage("file:src/media/pictures/backImageEdit.jpg");
+		BackgroundImage time = new BackgroundImage("file:src/media/pictures/time.png");
+		time.setFitWidth(80);
+		time.setPreserveRatio(true);
+		time.setLayoutY(10);
+		time.setLayoutX(15);
 		background.add(froggerback);
 		background.add(new Log("file:src/media/pictures/log3.png", 150, 0, 166, 0.75));
 		background.add(new Log("file:src/media/pictures/log3.png", 150, 220, 166, 0.75));
@@ -58,6 +63,7 @@ public class GameView{
 		background.add(new Obstacle("file:src/media/pictures/truck2Right.png", 500, 540, 1, 200, 200));
 		background.add(new Obstacle("file:src/media/pictures/car1Left.png", 500, 490, -5, 50, 50));
 		background.add(new Digit(0, 30, 360, 25));
+		background.add(time);
 		background.start();
 	}
 }
