@@ -16,7 +16,14 @@ public class Digit extends Actor{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	/**
+	 * For JUnit tests.
+	 */
+	
+	public Digit() {
+		
+	}
 	/**
 	 * Add new number in the game
 	 * @param n Number that are to be added (0-9)

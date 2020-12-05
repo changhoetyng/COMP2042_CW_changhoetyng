@@ -9,7 +9,8 @@ import javafx.application.Application;
 public class Main {
 	
 	/**
-	 * Main method which use to Launch a stand alone application.
+	 * Main function 
+	 * @param args The command line parameters.
 	 */
 	
 	public static void main(String[] args) {

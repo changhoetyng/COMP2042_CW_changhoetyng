@@ -338,7 +338,7 @@ public class Animal extends Actor {
 	 */
 	
 	public boolean isStop() {
-		return end==2;
+		return end==5;
 	}
 	
 	/**

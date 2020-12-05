@@ -1,13 +1,21 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.*;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.Assert;
 
 import gameMain.actor.Animal;
+import gameMain.actor.BackgroundImage;
+import gameMain.actor.Digit;
 import gameMain.game.GameModel;
 import gameMain.info.InfoModel;
-import gameMain.world.World;
+
+/**
+ * JUnit Testing
+ */
 
 public class Testing{
 	private GameModel gameModel;
@@ -40,7 +48,29 @@ public class Testing{
 	}
 	
 	/**
-	 * Image URL cannot be invalid.
+	 * Getter will get the same value that Setter sets.
+	 */
+	
+	@Test
+	public void setterGetterTest() {
+		int test = 10;
+		Digit digit = new Digit();
+		digit.setDim(test);
+		assertEquals(test, digit.getDim());
+	}
+	
+	/**
+	 * Invalid Image URL for BackgroundImage throws IllegalArgumentException.
+	 */
+	
+	@Test
+	public void invalidBackgroundImage() {
+		thrown.expect(IllegalArgumentException.class);
+		new BackgroundImage("randomValue");
+	}
+	
+	/**
+	 * Invalid Image URL throws IllegalArgumentException.
 	 */
 	
 	@Test

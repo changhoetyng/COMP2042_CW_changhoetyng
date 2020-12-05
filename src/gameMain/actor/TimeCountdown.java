@@ -3,7 +3,7 @@ package gameMain.actor;
 import javafx.scene.image.Image;
 
 /**
- * Represents the number character in the game.
+ * Represents the timer digit in the game.
  */
 
 public class TimeCountdown extends Actor{
