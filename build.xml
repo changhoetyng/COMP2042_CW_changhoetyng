@@ -1,0 +1,26 @@
+<project name="frogAntdemo">
+        <target name="run" depends="compile">
+            <java classname="gameMain.Main" classpath="intermediary">
+
+            </java>
+        </target>
+
+        <target name="compile">
+
+            <path id="pathid">
+
+                <fileset dir="D:\Program Files\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib">
+                    <include name= "*.jar"/>
+                </fileset>
+                <fileset dir= "C:\Users\User\.p2\pool\plugins">
+                    <include name="*.jar"/>
+                </fileset>
+
+            </path>
+            <javac includeantruntime="false" srcdir="./src" destdir="intermediary">
+                <classpath refid="pathid"/>
+            </javac>
+
+        </target>
+
+    </project>
