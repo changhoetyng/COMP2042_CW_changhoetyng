@@ -68,6 +68,24 @@ public class InfoView{
 			textSix.setLayoutY(485);
 			textSix.setLayoutX(172);
 			
+			BackgroundImage textSeven = new BackgroundImage("file:src/media/pictures/infoTextSeven.png");
+			textSeven.setFitWidth(380);
+			textSeven.setPreserveRatio(true);
+			textSeven.setLayoutY(535);
+			textSeven.setLayoutX(168);
+			
+			BackgroundImage textEight = new BackgroundImage("file:src/media/pictures/infoTextEight.png");
+			textEight.setFitWidth(360);
+			textEight.setPreserveRatio(true);
+			textEight.setLayoutY(555);
+			textEight.setLayoutX(168);
+			
+			BackgroundImage clock = new BackgroundImage("file:src/media/pictures/clock.png");
+			clock.setFitWidth(70);
+			clock.setPreserveRatio(true);
+			clock.setLayoutY(532);
+			clock.setLayoutX(63);
+			
 			BackgroundImage car = new BackgroundImage("file:src/media/pictures/car1right.png");
 			car.setFitWidth(70);
 			car.setPreserveRatio(true);
@@ -97,7 +115,6 @@ public class InfoView{
 			nfifty.setPreserveRatio(true);
 			nfifty.setLayoutY(482);
 			nfifty.setLayoutX(60);
-
 			
 			mainMenuButton.setLayoutX(180);
 			mainMenuButton.setLayoutY(710);
@@ -115,10 +132,13 @@ public class InfoView{
 			addChildren.add(textFour);
 			addChildren.add(textFive);
 			addChildren.add(textSix);
+			addChildren.add(textSeven);
+			addChildren.add(textEight);
 			addChildren.add(keyboard);
 			addChildren.add(ten);
 			addChildren.add(fifty);
 			addChildren.add(nfifty);
+			addChildren.add(clock);
 			addChildren.add(mainMenuButton);
 		}
 }

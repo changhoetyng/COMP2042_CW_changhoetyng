@@ -73,8 +73,14 @@ A text file has been added in media.text to record the previous top 5 score by t
     - Main Menu
     Main menu page that display a Start and Info button.
     <br />
+    - Difficulty
+    Difficulty page that let players choose the difficulty of the game.
+    <br />
 - New Game Mode
 The original game mode will end after 5 frogs have reached their home which is not how the original game works. Instead, **timer**  have been added in the game to make it look like the original game. The player now can have unlimited tries until the timer stops at 0.
+
+- Levels 
+Player are able to choose between easy, medium and hard in the difficulty page before starting the game.
 
 ####Bug fixes
 
@@ -125,4 +131,9 @@ Dev branch was created at the start of the project and it is merged into the mas
 ![git2](git2.jpg)
 ![git3](git3.jpg)
 
-438 words
+**Build using ant**
+
+The app can be run and compile using Ant.
+![git1](build.jpg)
+
+481 words

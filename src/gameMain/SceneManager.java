@@ -1,5 +1,9 @@
 package gameMain;
 
+import gameMain.difficulty.DifficultyController;
+import gameMain.difficulty.DifficultyFactory;
+import gameMain.difficulty.DifficultyModel;
+import gameMain.difficulty.DifficultyView;
 import gameMain.game.GameController;
 import gameMain.game.GameFactory;
 import gameMain.game.GameModel;
@@ -52,12 +56,13 @@ public class SceneManager {
 	 * Swap stage into Game upon calling this method.
 	 * @param sceneManager Passed in SceneManager for the Game to 
 	 * call other scenes if needed.
+	 * @param difficulty The difficulty of the level.
 	 */
 	
-	public void getGameScene(SceneManager sceneManager) {
+	public void getGameScene(SceneManager sceneManager, int difficulty) {
 		GameModel gameModel = GameFactory.gameModelFactory(sceneManager,primaryStage);
 		GameView gameView = GameFactory.gameViewFactory();
-		GameController gameController = GameFactory.gameControllerFactory(gameView,gameModel,primaryStage,sceneManager);
+		GameController gameController = GameFactory.gameControllerFactory(gameView,gameModel,primaryStage,sceneManager,difficulty);
 		gameController.start();
 	}
 	
@@ -85,5 +90,18 @@ public class SceneManager {
 		InfoModel infoModel = InfoFactory.infoModelFactory(primaryStage, sceneManager);
 		InfoController infoController = InfoFactory.infoControllerFactory(infoView, infoModel);
 		infoController.start();
+	}
+	
+	/**
+	 * Swap stage into difficulty selection page upon calling this method.
+	 * @param sceneManager Passed in SceneManager for the Info to 
+	 * call other scenes if needed.
+	 */
+	
+	public void getDifficultyScene(SceneManager sceneManager) {
+		DifficultyView difficultyView = DifficultyFactory.difficultyViewFactory();
+		DifficultyModel difficultyModel = DifficultyFactory.difficultyModelFactory(sceneManager, primaryStage);
+		DifficultyController difficultyController = DifficultyFactory.difficultyControllerFactory(difficultyView, difficultyModel);
+		difficultyController.start();
 	}
 }

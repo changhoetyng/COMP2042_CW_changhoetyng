@@ -53,15 +53,29 @@ public class GameFactory {
 	 * @param gameModel Model of the game.
 	 * @param primaryStage The primaryStage of the javafx.
 	 * @param sceneManager For changing scene.
+	 * @param difficulty The difficulty of the level.
 	 * @return gameController
 	 */
 	
-	public static GameController gameControllerFactory(GameView gameView,GameModel gameModel,Stage primaryStage,SceneManager sceneManager) {
-		GameController gameController = (GameController)gameMap.get("gameController");
+	public static GameController gameControllerFactory(GameView gameView,GameModel gameModel,Stage primaryStage,SceneManager sceneManager,int difficulty) {
+		String map = "";
+		if (difficulty == 1) {
+			map = "Easy";
+		}
+		
+		if (difficulty == 2) {
+			map = "Medium";
+		}
+		
+		if (difficulty == 3) {
+			map = "Hard";
+		}
+		
+		GameController gameController = (GameController)gameMap.get("gameController" + map);
 		
 		if(gameController == null) {
-			gameController = new GameController(gameView,gameModel,primaryStage,sceneManager);
-			gameMap.put("gameController", gameController);
+			gameController = new GameController(gameView,gameModel,primaryStage,sceneManager,difficulty);
+			gameMap.put("gameController" + map, gameController);
 		}
 		return gameController;
 	}

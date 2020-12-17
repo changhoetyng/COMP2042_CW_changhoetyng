@@ -38,6 +38,9 @@ public class Animal extends Actor {
 	private int carD = 0;
 	private double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
+	private static double s3;
+	private static int s2;
+	private static double s1;
 	
 	/**
 	 * Initialized animal with his default position
@@ -176,18 +179,18 @@ public class Animal extends Actor {
 		}
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft())
-				move(-2,0);
+				move(s3,0);
 			else
-				move (.75,0);
+				move (s1,0);
 		}
 		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
-			move(-1,0);
+			move(s2,0);
 		}
 		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
 			if (getIntersectingObjects(WetTurtle.class).get(0).getSunk()) {
 				waterDeath = true;
 			} else {
-				move(-1,0);
+				move(s2,0);
 			}
 		}
 		else if (getIntersectingObjects(End.class).size() >= 1) {
@@ -310,6 +313,19 @@ public class Animal extends Actor {
 				changeScore = true;
 			}
 		}
+	}
+	
+	/**
+	 * Set the speed for the intersection point for the frog to moves the same speed as the objects.
+	 * @param speed1 Log Direction: Right 
+	 * @param speed2 WetTurtle Direction: Left
+	 * @param speed3 Log Direction: Left
+	 */
+	
+	public static void setIntersectSpeed(double speed1, int speed2, double speed3) {
+		s1 = speed1;
+		s2 = speed2;
+		s3 = speed3;
 	}
 	
 	public World getWorld() {

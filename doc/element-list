@@ -1,5 +1,6 @@
 gameMain
 gameMain.actor
+gameMain.difficulty
 gameMain.game
 gameMain.highScore
 gameMain.info

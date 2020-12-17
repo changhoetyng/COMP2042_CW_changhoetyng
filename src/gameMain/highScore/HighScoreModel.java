@@ -41,10 +41,6 @@ public class HighScoreModel implements MvcModel{
 		this.sceneManager = sceneManager;
 	}
 	
-	/**
-	 * Initialized variable for other HighScore.
-	 */
-	
 	public void setVar() {
 		this.highScorePane = new Pane();
 		this.mainMenuButton = new Button();
@@ -104,6 +100,9 @@ public class HighScoreModel implements MvcModel{
 	public void setNumber(int score, ObservableList<Node> addChildren, int x, int y) {
 		int shift = 0;
 		int dim = 30;
+		if(score == 0) {
+			addChildren.add(new Digit(0, dim, x - shift, y));
+		}
     	while (score > 0) {
     		  int d = score / 10;
     		  int k = score - d * 10;

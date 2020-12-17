@@ -2,10 +2,8 @@ package gameMain.highScore;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import gameMain.SceneManager;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.stage.Stage;
 
 /**
  * Controller of the High Score screen.

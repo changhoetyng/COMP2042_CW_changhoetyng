@@ -46,12 +46,12 @@ public class MainMenuModel implements MvcModel{
 	}
 	
 	/**
-	 * Navigate to game upon clicking startButton.
+	 * Navigate to difficulty upon clicking startButton.
 	 */
 	
 	public void startButtonListener() {
 		startButton.setOnAction(e -> {
-			sceneManager.getGameScene(sceneManager);
+			sceneManager.getDifficultyScene(sceneManager);
 		});
 	}
 	

@@ -3,9 +3,6 @@ package gameMain.info;
 import java.util.HashMap;
 
 import gameMain.SceneManager;
-import gameMain.highScore.HighScoreController;
-import gameMain.highScore.HighScoreModel;
-import gameMain.highScore.HighScoreView;
 import javafx.stage.Stage;
 
 /**
