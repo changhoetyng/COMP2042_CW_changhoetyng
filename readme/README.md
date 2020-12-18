@@ -50,7 +50,7 @@ The Frogger project is maintained and it is divided into 3 parts:
     Before rearranging the packages, all the classes are located in the same directory which makes it harder to maintain.
     \
     **Before rearranging:**
-    ![rearrangePackagesBefore](rearrangePackagesBefore.jpg)
+    ![rearrangePackagesBefore](rearrangePackagesBefore.JPG)
 
     The classes are all separated into different packages based on their categories.
     \
