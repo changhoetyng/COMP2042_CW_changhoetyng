@@ -55,7 +55,7 @@ The Frogger project is maintained and it is divided into 3 parts:
     The classes are all separated into different packages based on their categories.
     \
     **After rearranging:**
-    ![rearrangePackagesAfter](rearrangePackagesAfter.jpg)
+    ![rearrangePackagesAfter](rearrangePackagesAfter.JPG)
 
     <br />
 ####Features
@@ -100,25 +100,25 @@ The frog is no longer allowed into the platform if it's occupied by another frog
 <br />
 - Background Image and Digit
 **Before:**
-![backgroundBeforet](backgroundBefore.jpg)
+![backgroundBeforet](backgroundBefore.JPG)
 <br />
 **After:**
-![backgroundAfter](backgroundAfter.jpg)
+![backgroundAfter](backgroundAfter.JPG)
 <br />
 The background image has been edited through GIMP and added into the game.
 <br />
 The black background for digit has also been removed.
 <br />
 **Before:**
-![beforeDigit](beforeDigit.jpg)
+![beforeDigit](beforeDigit.JPG)
 **After:**
-![afterDigit](afterDigit.jpg)
+![afterDigit](afterDigit.JPG)
 
 ####JUnit Test
 
 JUnit 4 has been added into the project and 5 tests have been added to show my understanding on JUnit.
 
-![testing](testing.jpg)
+![testing](testing.JPG)
 
 ####Version Control
 
@@ -127,13 +127,13 @@ Github is used as the remote repository of this project.
 Dev branch was created at the start of the project and it is merged into the master branch after testing to assure it has no issue after the merging.
 
 **Screenshots of the commit history:**
-![git1](git1.jpg)
-![git2](git2.jpg)
-![git3](git3.jpg)
+![git1](git1.JPG)
+![git2](git2.JPG)
+![git3](git3.JPG)
 
 **Build using ant**
 
 The app can be run and compile using Ant.
-![git1](build.jpg)
+![git1](build.JPG)
 
 481 words
