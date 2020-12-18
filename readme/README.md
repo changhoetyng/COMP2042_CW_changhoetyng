@@ -1,13 +1,13 @@
-##Frogger 
+## Frogger 
 
 The Frogger project is maintained and it is divided into 3 parts:
 - **Basic Maintenance**
 - **Features**
 - **Bug fixes**
 
-###Maintenance
+### Maintenance
 
-####Basic Maintenance
+#### Basic Maintenance
 
 - **Refactoring**
     - Encapsulate fields:
@@ -50,15 +50,17 @@ The Frogger project is maintained and it is divided into 3 parts:
     Before rearranging the packages, all the classes are located in the same directory which makes it harder to maintain.
     \
     **Before rearranging:**
+    \
     ![rearrangePackagesBefore](rearrangePackagesBefore.JPG)
 
     The classes are all separated into different packages based on their categories.
     \
     **After rearranging:**
+    \
     ![rearrangePackagesAfter](rearrangePackagesAfter.JPG)
 
     <br />
-####Features
+#### Features
 
 - High Score Features
 A text file has been added in media.text to record the previous top 5 score by the player.
@@ -82,51 +84,57 @@ The original game mode will end after 5 frogs have reached their home which is n
 - Levels 
 Player are able to choose between easy, medium and hard in the difficulty page before starting the game.
 
-####Bug fixes
+#### Bug fixes
 
 - Score
-**Before:**
+<br />
+Before:
 The score will not deduct when it is lower than 50. The original author added an if condition to prevent error.
 <br />
-**After:**
+After:
 The bug has been fixed and the marks will be equal to 0 if the marks is lower than 50.
 <br />
 - Platform
-**Before:**
+Before:
 The frog can jump into the platform even though the platform is occupied by another frog.
 <br />
-**After:**
+After:
 The frog is no longer allowed into the platform if it's occupied by another frog.
 <br />
 - Background Image and Digit
-**Before:**
+Before:
+\
 ![backgroundBeforet](backgroundBefore.JPG)
 <br />
-**After:**
+After:
+\
 ![backgroundAfter](backgroundAfter.JPG)
 <br />
 The background image has been edited through GIMP and added into the game.
 <br />
 The black background for digit has also been removed.
 <br />
-**Before:**
+Before:
+\
 ![beforeDigit](beforeDigit.JPG)
-**After:**
+After:
+\
 ![afterDigit](afterDigit.JPG)
 
-####JUnit Test
+#### JUnit Test
 
 JUnit 4 has been added into the project and 5 tests have been added to show my understanding on JUnit.
-
+\
 ![testing](testing.JPG)
 
-####Version Control
+#### Version Control
 
 Github is used as the remote repository of this project.
 
 Dev branch was created at the start of the project and it is merged into the master branch after testing to assure it has no issue after the merging.
 
 **Screenshots of the commit history:**
+\
 ![git1](git1.JPG)
 ![git2](git2.JPG)
 ![git3](git3.JPG)
@@ -134,6 +142,7 @@ Dev branch was created at the start of the project and it is merged into the mas
 **Build using ant**
 
 The app can be run and compile using Ant.
+\
 ![git1](build.JPG)
 
 481 words
