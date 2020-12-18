@@ -66,44 +66,61 @@ The Frogger project is maintained and it is divided into 3 parts:
 A text file has been added in media.text to record the previous top 5 score by the player.
 <br />
 - New screens
-<br />
-    High Score: A list of top 5 previous high scores after the game.
+    - High Score
+    A list of top 5 previous high scores after the game.
     <br /> 
-    Info: An info page that displays instructions for the users.  
+    - Info
+    An info page that displays instructions for the users.
     <br />
-    Main Menu: Main menu page that display a Start and Info button. 
+    - Main Menu
+    Main menu page that display a Start and Info button.
     <br />
-    Difficulty: Difficulty page that let players choose the difficulty of the game.
+    - Difficulty
+    Difficulty page that let players choose the difficulty of the game.
     <br />
 - New Game Mode
-<br />
-The original game mode will end after 5 frogs have reached their home which is not how the original game works. Instead, timer have been added in the game to make it look like the original game. The player now can have unlimited tries until the timer stops at 0.
+The original game mode will end after 5 frogs have reached their home which is not how the original game works. Instead, **timer**  have been added in the game to make it look like the original game. The player now can have unlimited tries until the timer stops at 0.
 
 - Levels 
-<br />
 Player are able to choose between easy, medium and hard in the difficulty page before starting the game.
 
 #### Bug fixes
 
 - Score
-<br />
+\
 Before:
 The score will not deduct when it is lower than 50. The original author added an if condition to prevent error.
-<br />
+\
 After:
 The bug has been fixed and the marks will be equal to 0 if the marks is lower than 50.
 <br />
 - Platform
-Before: The frog can jump into the platform even though the platform is occupied by another frog.
-<br />
-After: The frog is no longer allowed into the platform if it's occupied by another frog.
+\
+Before:
+The frog can jump into the platform even though the platform is occupied by another frog.
+\
+After:
+The frog is no longer allowed into the platform if it's occupied by another frog.
 <br />
 - Background Image and Digit
+Before:
+\
+![backgroundBeforet](backgroundBefore.JPG)
+<br />
+After:
+\
+![backgroundAfter](backgroundAfter.JPG)
 <br />
 The background image has been edited through GIMP and added into the game.
 <br />
 The black background for digit has also been removed.
 <br />
+Before:
+\
+![beforeDigit](beforeDigit.JPG)
+After:
+\
+![afterDigit](afterDigit.JPG)
 
 #### JUnit Test
 
@@ -130,3 +147,7 @@ The app can be run and compile using Ant.
 ![git1](build.JPG)
 
 481 words
+
+This markdown is created using Markdown Preview Enchanced in Visual Studio Code and it is best to view the markdown file using the extension to avoid any formatting error by other readme editor on other websites.
+
+Extension: Markdown Preview Enchanced - Yiyi Wang 
