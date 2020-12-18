@@ -94,13 +94,9 @@ After:
 The bug has been fixed and the marks will be equal to 0 if the marks is lower than 50.
 <br />
 - Platform
-Before:
+Before: The frog can jump into the platform even though the platform is occupied by another frog.
 <br />
-The frog can jump into the platform even though the platform is occupied by another frog.
-<br />
-After:
-<br />
-The frog is no longer allowed into the platform if it's occupied by another frog.
+After: The frog is no longer allowed into the platform if it's occupied by another frog.
 <br />
 - Background Image and Digit
 <br />
